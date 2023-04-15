@@ -15,7 +15,7 @@ import SvgProfile from "../assets/svg/profileIcon";
 
 const Tabs = createBottomTabNavigator();
 
-const HomeScreen = ({ navigation }) => {
+const HomeTabs = ({ navigation }) => {
   return (
     <Tabs.Navigator>
       <Tabs.Screen
@@ -72,5 +72,12 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+// });
 
-export default HomeScreen;
+export default HomeTabs;
