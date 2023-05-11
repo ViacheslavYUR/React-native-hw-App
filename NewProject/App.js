@@ -1,16 +1,15 @@
 import React, { useCallback } from "react";
-// import { StatusBar } from "expo-status-bar";
+import { Provider } from "react-redux";
 import { StyleSheet, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
-import { useRoute } from "./router";
+import { store } from "./redux/store";
+
+import { Main } from "./components/Main";
 
 export default function App() {
-  const routing = useRoute(true);
-
   const [fontsLoaded] = useFonts({
     "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
   });
@@ -25,9 +24,11 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <NavigationContainer>{routing}</NavigationContainer>
-    </View>
+    <Provider store={store}>
+      <View style={styles.container} onLayout={onLayoutRootView}>
+        <Main />
+      </View>
+    </Provider>
   );
 }
 
